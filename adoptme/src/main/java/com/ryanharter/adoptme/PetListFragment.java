@@ -73,14 +73,17 @@ public class PetListFragment extends ListFragment {
         // TODO: replace with a real list adapter.
         setListAdapter(new ArrayAdapter<DummyContent.DummyItem>(
                 getActivity(),
-                android.R.layout.simple_list_item_activated_1,
-                android.R.id.text1,
+                R.layout.row_pet,
+                R.id.name,
                 DummyContent.ITEMS));
     }
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        final ListView listView = getListView();
+        listView.setDivider(null);
 
         // Restore the previously serialized activated item position.
         if (savedInstanceState != null
