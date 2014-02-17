@@ -1,13 +1,13 @@
 package com.ryanharter.adoptme;
 
+import com.ryanharter.adoptme.dummy.DummyContent;
+
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-
-import com.ryanharter.adoptme.dummy.DummyContent;
 
 /**
  * A list fragment representing a list of Pets. This fragment
@@ -73,8 +73,8 @@ public class PetListFragment extends ListFragment {
         // TODO: replace with a real list adapter.
         setListAdapter(new ArrayAdapter<DummyContent.DummyItem>(
                 getActivity(),
-                R.layout.row_pet,
-                R.id.name,
+                android.R.layout.simple_list_item_1,
+                android.R.id.text1,
                 DummyContent.ITEMS));
     }
 

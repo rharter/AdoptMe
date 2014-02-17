@@ -19,6 +19,8 @@ android {
     defaultConfig {
         minSdkVersion 14
         targetSdkVersion 19
+
+        testInstrumentationRunner "com.google.android.apps.common.testing.testrunner.GoogleInstrumentationTestRunner"
     }
 
     compileOptions {
@@ -40,4 +42,6 @@ android {
 
 dependencies {
 	compile 'com.android.support:support-v4:18.0.0'
+
+    instrumentTestCompile 'com.jakewharton.espresso:espresso:1.1-r2'
 }
