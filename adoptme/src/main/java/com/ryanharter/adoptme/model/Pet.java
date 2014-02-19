@@ -27,83 +27,83 @@ public class Pet {
     /**
      * The id for this pet.
      */
-    Long id;
+    public Long id;
 
     /**
      * The type of animal for this pet.
      */
-    String animal;
+    public String animal;
 
     /**
      * The name of the pet.
      */
-    String name;
+    public String name;
 
     /**
-     * The breed of the pet.
+     * The breeds of the pet.
      */
-    String breed;
+    public List<String> breeds;
 
     /**
      * The id of the pet in the shelter records.
      */
-    String shelterPetId;
+    public String shelterPetId;
 
     /**
      * Additional features of the pet.
      */
-    List<String> options;
+    public List<String> options;
 
     /**
      * The status of the pet.  This will only be A (Adoptable)
      * for publicly listed pets.
      */
-    String status;
+    public String status;
 
     /**
      * The contact info of the shelter.
      */
-    Contact contactInfo;
+    public Contact contactInfo;
 
     /**
      * The description of the pet.
      */
-    String description;
+    public String description;
 
     /**
      * The sex of the pet.
      */
-    String sex;
+    public String sex;
 
     /**
      * The age of the pet.
      */
-    String age;
+    public String age;
 
     /**
      * The size of the pet.
      */
-    String size;
+    public String size;
 
     /**
      * Whether this pet is a mixed breed.
      */
-    boolean mix;
+    public boolean mix;
 
     /**
      * The id of the shelter hosting this pet.
      */
-    String shelterId;
+    public String shelterId;
 
     /**
      * The last time this pet's information was updated.
      */
-    Date lastUpdate;
+    public Date lastUpdate;
 
     /**
      * The photos for this pet.
      */
-    List<Photo> photos;
+    public List<Photo> photos;
 
     public static class PetDeserializer implements JsonDeserializer<Pet> {
 
@@ -118,7 +118,20 @@ public class Pet {
             p.id = Long.parseLong(getString(json, "id"));
             p.animal = getString(json, "animal");
             p.name = getString(json, "name");
-            p.breed = getString(json.getAsJsonObject("breeds"), "breed");
+
+            // Breeds can either be an object or a list
+            p.breeds = new ArrayList<>();
+            JsonObject breeds = json.getAsJsonObject("breeds");
+            if (breeds.get("breed").isJsonObject()) {
+                p.breeds.add(getString(breeds, "breed"));
+            } else {
+                JsonArray breedList = breeds.getAsJsonArray("breed");
+                for (int i = 0; i < breedList.size(); i++) {
+                    JsonObject breed = breedList.get(i).getAsJsonObject();
+                    p.breeds.add(breed.getAsJsonPrimitive("$t").getAsString());
+                }
+            }
+
             p.shelterPetId = getString(json, "shelterPetId");
             p.status = getString(json, "status");
             p.contactInfo = Contact.getContact(json.getAsJsonObject("contact"));
@@ -144,10 +157,12 @@ public class Pet {
             p.photos = jsonDeserializationContext.deserialize(photos, photosType);
 
             p.options = new ArrayList<>();
-            JsonArray options = json.getAsJsonObject("options").getAsJsonArray("option");
-            for (int i = 0; i < options.size(); i++) {
-                JsonObject option = options.get(i).getAsJsonObject();
-                p.options.add(option.getAsJsonPrimitive("$t").getAsString());
+            if (json.getAsJsonObject("options").has("option")) {
+                JsonArray options = json.getAsJsonObject("options").getAsJsonArray("option");
+                for (int i = 0; i < options.size(); i++) {
+                    JsonObject option = options.get(i).getAsJsonObject();
+                    p.options.add(option.getAsJsonPrimitive("$t").getAsString());
+                }
             }
 
             return p;

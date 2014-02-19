@@ -38,10 +38,14 @@ android {
             proguardFile 'proguard-rules.txt'
         }
     }
+    packagingOptions {
+        exclude 'LICENSE.txt'
+    }
 }
 dependencies {
     compile 'com.android.support:support-v4:18.0.0'
     compile 'com.google.code.gson:gson:2.2.4'
+    compile 'com.squareup.picasso:picasso:2.2.0'
 
     instrumentTestCompile 'com.jakewharton.espresso:espresso:1.1-r2'
 }

@@ -4,5 +4,13 @@
     <style name="AppTheme" parent="android:Theme.Holo.Light.DarkActionBar">
         <!-- Customize your theme here. -->
     </style>
-
+    <style name="PetList.Name" parent="android:TextAppearance.Holo.Large.Inverse">
+        <item name="android:textColor">@color/pet_list_text</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+    <style name="PetList.Breed" parent="android:TextAppearance.Holo.Inverse">
+        <item name="android:textColor">@color/pet_list_text</item>
+        <item name="android:singleLine">true</item>
+    </style>
 </resources>

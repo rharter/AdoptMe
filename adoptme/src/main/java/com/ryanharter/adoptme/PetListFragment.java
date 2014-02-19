@@ -1,12 +1,13 @@
 package com.ryanharter.adoptme;
 
+import com.ryanharter.adoptme.adapter.PetsAdapter;
 import com.ryanharter.adoptme.dummy.DummyContent;
+import com.ryanharter.adoptme.utils.SampleDataUtils;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 /**
@@ -71,11 +72,9 @@ public class PetListFragment extends ListFragment {
         super.onCreate(savedInstanceState);
 
         // TODO: replace with a real list adapter.
-        setListAdapter(new ArrayAdapter<DummyContent.DummyItem>(
+        setListAdapter(new PetsAdapter(
                 getActivity(),
-                android.R.layout.simple_list_item_1,
-                android.R.id.text1,
-                DummyContent.ITEMS));
+                SampleDataUtils.getSamplePets(getActivity())));
     }
 
     @Override

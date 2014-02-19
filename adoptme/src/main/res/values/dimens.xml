@@ -1,3 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <dimen name="card_text_margin_horizontal">8dp</dimen>
+    <dimen name="pet_list_photo_height">256dp</dimen>
+    <color name="pet_list_text">#e5e5e5</color>
 </resources>
