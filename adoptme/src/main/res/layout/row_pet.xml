@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -23,6 +23,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"
+            tools:text="Golden Retriever"
             style="@style/PetList.Breed"/>
 
         <TextView
@@ -32,6 +33,7 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentBottom="true"
             android:layout_toLeftOf="@id/breed"
+            tools:text="Cody"
             style="@style/PetList.Name"/>
 
     </RelativeLayout>
