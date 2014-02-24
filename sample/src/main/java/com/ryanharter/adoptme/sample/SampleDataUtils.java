@@ -1,12 +1,10 @@
-package com.ryanharter.adoptme.utils;
+package com.ryanharter.adoptme.sample;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
-import com.ryanharter.adoptme.R;
-import com.ryanharter.adoptme.model.Pet;
-import com.ryanharter.adoptme.model.Pet.PetDeserializer;
+import com.ryanharter.adoptme.sample.Pet.PetDeserializer;
 
 import android.content.Context;
 

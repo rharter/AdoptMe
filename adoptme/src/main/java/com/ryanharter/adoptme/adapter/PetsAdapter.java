@@ -1,7 +1,7 @@
 package com.ryanharter.adoptme.adapter;
 
 import com.ryanharter.adoptme.R;
-import com.ryanharter.adoptme.model.Pet;
+import com.ryanharter.adoptme.sample.Pet;
 import com.squareup.picasso.Picasso;
 
 import android.content.Context;

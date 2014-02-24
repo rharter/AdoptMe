@@ -2,7 +2,7 @@ package com.ryanharter.adoptme;
 
 import com.ryanharter.adoptme.adapter.PetsAdapter;
 import com.ryanharter.adoptme.dummy.DummyContent;
-import com.ryanharter.adoptme.utils.SampleDataUtils;
+import com.ryanharter.adoptme.sample.SampleDataUtils;
 
 import android.app.Activity;
 import android.os.Bundle;

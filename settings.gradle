@@ -1,1 +1,1 @@
-include ':adoptme'
+include ':adoptme', ':sample'

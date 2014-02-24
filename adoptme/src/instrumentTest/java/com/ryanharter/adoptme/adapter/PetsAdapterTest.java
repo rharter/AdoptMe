@@ -1,8 +1,8 @@
 package com.ryanharter.adoptme.adapter;
 
 import com.ryanharter.adoptme.R;
-import com.ryanharter.adoptme.model.Pet;
-import com.ryanharter.adoptme.utils.SampleDataUtils;
+import com.ryanharter.adoptme.sample.Pet;
+import com.ryanharter.adoptme.sample.SampleDataUtils;
 
 import android.content.Context;
 import android.test.InstrumentationTestCase;

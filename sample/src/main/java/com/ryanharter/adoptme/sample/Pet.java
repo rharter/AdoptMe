@@ -1,4 +1,4 @@
-package com.ryanharter.adoptme.model;
+package com.ryanharter.adoptme.sample;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonDeserializationContext;
